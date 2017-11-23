@@ -55,7 +55,7 @@ public class MyFrame extends JFrame
     	answer[indexButton].setText(text);
     }
     
-    private JButton addButton(String label, ActionListener listener)
+    private JButton addButton(String label, ActionListener listener) //z ButtonClicked tez dziala. z ActionListener jest poprawniej? Wg mnie bardziej intuicyjnie jest z tym 1
     {
         JButton button = new JButton(label);
         panel.add(button);
