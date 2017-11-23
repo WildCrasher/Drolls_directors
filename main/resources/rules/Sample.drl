@@ -1,42 +1,74 @@
 package com.sample;
 
 import javax.swing.JFrame;
+import com.sample.MyFrame.Answer;
 
 global MyFrame frame;
  
-declare Pytanie
-	pytanie : String
-	odpowiedz : String[]
-	wybranaOdpowiedz : int
+declare Question
+	question : String
+	answer : String
 end
 
 rule "default"
 	when
 	then
+		String questiontext = "Is a train going into a tunel ever just a train going into a tunel?";
+		String answer1 = "Of course it's just a train going into a tunel. What else would it be?";
+		String answer2 = "No. It's always sexual and Freudian.";
+		String answer3 = "";
 		
-		Pytanie pytanie = new Pytanie( "Is a train going into a tunel ever just a train going into a tunel?",
-							 new String[]{"Of course it's just a train going into a tunel. What else would it be?",
-							 			  "No. It's always sexual and Freudian.",""} , 0);
-		frame.setDisplayText(pytanie.getPytanie());
-		for(int i = 0; i < 3; i++)
-		{
-			frame.setButtonText( i, pytanie.getOdpowiedz()[i]);
-		}
+		Question question = new Question();
+		question.setQuestion(questiontext);
+		insert(question);
 		
-		
-		pytanie.setWybranaOdpowiedz(0);
-		insert( pytanie );
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);
+		frame.pack();
 end
 
-rule "Of course it's just a train going into a tunel. What else would it be?"
+rule "answer"
 	when
+		a : Answer() && q : Question()
 		
 	then
+		q.setAnswer(a.getAnswer());
+		update(q);
+		delete(a);
+		System.out.println(q.getAnswer());
 end
  
-rule "No. It's always sexual and Freudian."
+rule "Alfred Hitchcock"
 	when
-		
+		q : Question(question == "Is a train going into a tunel ever just a train going into a tunel?" , answer=="No. It's always sexual and Freudian.")
 	then
+		System.out.println("hiczkok");
+		//TODO wyswietlic hiczkoka
 end
+
+rule "Do you like your movies a little on the creepy side?"
+	when
+		q : Question(question == "Is a train going into a tunel ever just a train going into a tunel?" , answer=="Of course it's just a train going into a tunel. What else would it be?")
+	then
+		String questiontext = "Do you like your movies a little on the creepy side?";
+		String answer1 = "No creepiness for me. it's not important";
+		String answer2 = "Yes, but only a little.";
+		String answer3 = "I love creepy movies";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+//lewo
+
+
+//prawo
 

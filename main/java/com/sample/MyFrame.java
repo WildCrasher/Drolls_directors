@@ -67,9 +67,25 @@ public class MyFrame extends JFrame
     {
         @Override public void actionPerformed(ActionEvent event)
         {
+        	
         	String input = event.getActionCommand();
-        	System.out.println(input);
+        	drolls.kSession.insert(new Answer (input));
+        	drolls.kSession.fireAllRules();
         }
+    }
+    
+    public static class Answer
+    {
+    	private String answer;
+    	public Answer(String answer)
+    	{
+    		this.answer = answer;
+    	}
+    	
+    	public String getAnswer()
+    	{
+    		return answer;
+    	}
     }
     
 }
