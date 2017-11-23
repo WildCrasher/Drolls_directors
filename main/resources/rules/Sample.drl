@@ -10,7 +10,7 @@ declare Question
 	answer : String
 end
 
-rule "default"
+rule "Is a train going into a tunel ever just a train going into a tunel?"
 	when
 	then
 		String questiontext = "Is a train going into a tunel ever just a train going into a tunel?";
