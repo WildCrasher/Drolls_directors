@@ -432,5 +432,58 @@ rule "James Cameron"
 		frame.pack();
 end
 
+rule "How do you feel about foreign directors?"
+	when
+		q : Question(question == "Give me something that that's..." , answer=="A drama")
+	then
+		String questiontext = "How do you feel about foreign directors?";
+		String answer1 = "I love them.";
+		String answer2 = "I said I wanted to watch drama. Don't get carried away.";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "What's your stance on demonic talking foxes?"
+	when
+		q : Question(question == "How do you feel about foreign directors?" , answer=="I love them.")
+	then
+		String questiontext = "What's your stance on demonic talking foxes?";
+		String answer1 = "A life without demonic talking foxes is no life at all.";
+		String answer2 = "No thank you.";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Lars Von Trier"
+	when
+		q : Question(question == "What's your stance on demonic talking foxes?" , answer=="A life without demonic talking foxes is no life at all.")
+	then
+		String questiontext = "Lars Von Trier";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
 //prawo
 
