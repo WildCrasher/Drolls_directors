@@ -10,6 +10,17 @@ declare Question
 	answer : String
 end
 
+rule "answer"
+	when
+		a : Answer() && q : Question()
+		
+	then
+		q.setAnswer(a.getAnswer());
+		update(q);
+		delete(a);
+		System.out.println(q.getAnswer());
+end
+
 rule "Is a train going into a tunel ever just a train going into a tunel?"
 	when
 	then
@@ -27,17 +38,6 @@ rule "Is a train going into a tunel ever just a train going into a tunel?"
 		frame.setButtonText(1,answer2);
 		frame.setButtonText(2,answer3);
 		frame.pack();
-end
-
-rule "answer"
-	when
-		a : Answer() && q : Question()
-		
-	then
-		q.setAnswer(a.getAnswer());
-		update(q);
-		delete(a);
-		System.out.println(q.getAnswer());
 end
  
 rule "Alfred Hitchcock"
@@ -69,6 +69,282 @@ end
 
 //lewo
 
+rule "Give me something that that's..."
+	when
+		q : Question(question == "Do you like your movies a little on the creepy side?" , answer=="No creepiness for me. it's not important")
+	then
+		String questiontext = "Give me something that that's...";
+		String answer1 = "A comedy";
+		String answer2 = "An action movie";
+		String answer3 = "A drama";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Did you light ants on fire when you were a kid and yell \"BOOM!\" when they lit on fire?"
+	when
+		q : Question(question == "Give me something that that's..." , answer=="An action movie")
+	then
+		String questiontext = "Did you light ants on fire when you were a kid and yell \"BOOM!\" when they lit on fire?";
+		String answer1 = "Yep.";
+		String answer2 = "No. What kind of simpleton would do that?";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Michael Bay"
+	when
+		q : Question(question == "Did you light ants on fire when you were a kid and yell \"BOOM!\" when they lit on fire?" , answer=="Yep.")
+	then
+		String questiontext = "Michael Bay";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "What is most important to you in an action movie?"
+	when
+		q : Question(question == "Did you light ants on fire when you were a kid and yell \"BOOM!\" when they lit on fire?" , answer=="No. What kind of simpleton would do that?")
+	then
+		String questiontext = "What is most important to you in an action movie?";
+		String answer1 = "Blood.";
+		String answer2 = "Fantasy.";
+		String answer3 = "Heavy plot.";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Sam Peckinpah"
+	when
+		q : Question(question == "What is most important to you in an action movie?" , answer=="Blood.")
+	then
+		String questiontext = "Sam Peckinpah";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Peter Jackson"
+	when
+		q : Question(question == "What is most important to you in an action movie?" , answer=="Fantasy.")
+	then
+		String questiontext = "Peter Jackson";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Christopher Nolan"
+	when
+		q : Question(question == "What is most important to you in an action movie?" , answer=="Heavy plot.")
+	then
+		String questiontext = "Christopher Nolan";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "How do you feel about Jonah Hill?"
+	when
+		q : Question(question == "Give me something that that's..." , answer=="A comedy")
+	then
+		String questiontext = "How do you feel about Jonah Hill?";
+		String answer1 = "He is not a comic genius.";
+		String answer2 = "He is a comic genius.";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Judd Apatow"
+	when
+		q : Question(question == "How do you feel about Jonah Hill?" , answer=="He is a comic genius.")
+	then
+		String questiontext = "Judd Apatow";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Do you prefer quirky or gross-out comedies?"
+	when
+		q : Question(question == "How do you feel about Jonah Hill?" , answer=="He is not a comic genius.")
+	then
+		String questiontext = "Do you prefer quirky or gross-out comedies?";
+		String answer1 = "Gross stuff is hilarious.";
+		String answer2 = "I like 'em quirky and...";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "I like 'em quirky and..."
+	when
+		q : Question(question == "Do you prefer quirky or gross-out comedies?" , answer=="I like 'em quirky and...")
+	then
+		String questiontext = "I like 'em quirky and...";
+		String answer1 = "dark. Darker than a black steer's tookus on a moonless prairie night";
+		String answer2 = "I kind of hate my dad.";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "The Coen Brothers"
+	when
+		q : Question(question == "I like 'em quirky and..." , answer=="dark. Darker than a black steer's tookus on a moonless prairie night")
+	then
+		String questiontext = "The Coen Brothers";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Wes Anderson"
+	when
+		q : Question(question == "I like 'em quirky and..." , answer=="I kind of hate my dad.")
+	then
+		String questiontext = "Wes Anderson";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Do you want gross stuff with stoners or without?"
+	when
+		q : Question(question == "Do you prefer quirky or gross-out comedies?" , answer=="Gross stuff is hilarious.")
+	then
+		String questiontext = "Do you want gross stuff with stoners or without?";
+		String answer1 = "With";
+		String answer2 = "Without";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Kevin Smith"
+	when
+		q : Question(question == "Do you want gross stuff with stoners or without?" , answer=="With")
+	then
+		String questiontext = "Kevin Smith";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "The Farrelly Brothers"
+	when
+		q : Question(question == "Do you want gross stuff with stoners or without?" , answer=="Without")
+	then
+		String questiontext = "The Farrelly Brothers";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
 
 //prawo
 
