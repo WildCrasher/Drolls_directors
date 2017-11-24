@@ -346,5 +346,91 @@ rule "The Farrelly Brothers"
 		frame.pack();
 end
 
+rule "Yes, but only a little. Preferably..."
+	when
+		q : Question(question == "Do you like your movies a little on the creepy side?" , answer=="Yes, but only a little.")
+	then
+		String questiontext = "Yes, but only a little. Preferably...";
+		String answer1 = "shrouded in the comfort of a big blockbuster.";
+		String answer2 = "I want my movies to make me feel uncomfortable";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Darren Aronofsky"
+	when
+		q : Question(question == "Yes, but only a little. Preferably..." , answer=="I want my movies to make me feel uncomfortable")
+	then
+		String questiontext = "Darren Aronofsky";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "How do you feel about lens flares and dumbstruck faces looking off camera?"
+	when
+		q : Question(question == "Yes, but only a little. Preferably..." , answer=="shrouded in the comfort of a big blockbuster.")
+	then
+		String questiontext = "How do you feel about lens flares and dumbstruck faces looking off camera?";
+		String answer1 = "They're awesome!";
+		String answer2 = "Who the hell cares?";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Steven Spielberg"
+	when
+		q : Question(question == "How do you feel about lens flares and dumbstruck faces looking off camera?" , answer=="They're awesome!")
+	then
+		String questiontext = "Steven Spielberg";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "James Cameron"
+	when
+		q : Question(question == "How do you feel about lens flares and dumbstruck faces looking off camera?" , answer=="Who the hell cares?")
+	then
+		String questiontext = "James Cameron";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
 //prawo
 
