@@ -459,24 +459,7 @@ rule "How do you feel about foreign directors?"
 		frame.pack();
 end
 
-rule "What's your stance on demonic talking foxes?"
-	when
-		q : Question(question == "How do you feel about foreign directors?" , answer=="I love them.")
-	then
-		String questiontext = "What's your stance on demonic talking foxes?";
-		String answer1 = "A life without demonic talking foxes is no life at all.";
-		String answer2 = "No thank you.";
-		String answer3 = "";
-		
-		q.setQuestion(questiontext);
-		update(q);
-		
-		frame.setDisplayText(questiontext);
-		frame.setButtonText(0,answer1);
-		frame.setButtonText(1,answer2);
-		frame.setButtonText(2,answer3);		
-		frame.pack();
-end
+
 
 rule "Lars Von Trier"
 	when
@@ -503,7 +486,7 @@ rule "Do you like creepy movies with a twist?"
 	then
 		String questiontext = "Do you like creepy movies with a twist?";
 		String answer1 = "I am shameless sucker for a twist.";
-		String answer2 = "Meh, a twist is completely unneccessary";
+		String answer2 = "Meh, a twist is completely unnecessary";
 		String answer3 = "";
 		
 		q.setQuestion(questiontext);
@@ -518,7 +501,7 @@ end
 
 
 rule "M. Night Shyamalan"
-when
+	when
 		q : Question(question == "Do you like creepy movies with a twist?" , answer=="I am shameless sucker for a twist.")
 	then
 		String questiontext = "M. Night Shyamalan";
@@ -535,7 +518,7 @@ end
 
 rule "Do you like animation?"
 	when
-		q : Question(question == "Do you like creepy movies with a twist?" , answer=="Meh, a twist is completely unneccessary")
+		q : Question(question == "Do you like creepy movies with a twist?" , answer=="Meh, a twist is completely unnecessary")
 	then
 		String questiontext = "Do you like animation?";
 		String answer1 = "What, like for kids? No thanks.";
@@ -553,7 +536,7 @@ rule "Do you like animation?"
 end
 
 rule "Tim Burton"
-when
+	when
 		q : Question(question == "Do you like animation?" , answer=="Hell, yeah!")
 	then
 		String questiontext = "Tim Burton";
@@ -588,7 +571,7 @@ rule "Do you want to see things that no human should really ever see?"
 end
 
 rule "Guillermo Del Toro"
-when
+	when
 		q : Question(question == "Do you want to see things that no human should really ever see?" , answer=="Golly gee, I sure don't.")
 	then
 		String questiontext = "Guillermo Del Toro";
@@ -604,7 +587,7 @@ when
 end
 
 rule "Takashi Miike"
-when
+	when
 		q : Question(question == "Do you want to see things that no human should really ever see?" , answer=="The more disgusting the better.")
 	then
 		String questiontext = "Takashi Miike";
@@ -618,3 +601,270 @@ when
 		frame.setButtonText(2,answer3);		
 		frame.pack();
 end
+
+//left -> up -> right
+
+
+rule "What's your stance on demonic talking foxes?"
+	when
+		q : Question(question == "How do you feel about foreign directors?" , answer=="I love them.")
+	then
+		String questiontext = "What's your stance on demonic talkng foxes?";
+		String answer1 = "I life without demonic talking foxes is no life at all.";
+		String answer2 = "No thank you.";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Do you like rain?"
+	when
+		q : Question(question == "What's your stance on demonic talkng foxes?" , answer=="No thank you.")
+	then
+		String questiontext = "Do you like rain?";
+		String answer1 = "It's great.";
+		String answer2 = "Nope.";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "How do you feel about religion?"
+	when
+		q : Question(question == "Do you like rain?" , answer=="Nope.")
+	then
+		String questiontext = "How do you feel about religion?";
+		String answer1 = "It's not for me.";
+		String answer2 = "I am well-versed in religious texts.";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Akira Kurosawa"
+	when
+		q : Question(question == "Do you like rain?" , answer=="It's great.")
+	then
+	String questiontext = "Akira Kurosawa";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Robert Bresson"
+	when
+		q : Question(question == "How do you feel about religion?" , answer=="I am well-versed in religious texts.")
+	then
+	String questiontext = "Robert Bresson";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Ingmat Bergman"
+	when
+		q : Question(question == "How do you feel about religion?" , answer=="It's not for me.")
+	then
+	String questiontext = "Ingmar Bergman";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Do you like loner white guys in your movies?"
+	when
+		q : Question(question == "How do you feel about foreign directors?" , answer=="I said I wanted to watch drama. Don't get carried away.")
+	then
+		String questiontext = "Do you like loner white guys in your movies?";
+		String answer1 = "Not really.";
+		String answer2 = "Loner white guys are awesome!";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Do you own a tin foll hat to keep the government from reading your mind when you go to Starbucks?"
+	when
+		q : Question(question == "Do you like loner white guys in your movies?" , answer=="Not really.")
+	then
+		String questiontext = "Do you own a tin foll hat to keep the government from reading your mind when you go to Starbucks?";
+		String answer1 = "Nope.";
+		String answer2 = "That way, they don't know how many lattes I have each year!";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "How much do you like New York?"
+	when
+		q : Question(question == "Do you like loner white guys in your movies?" , answer=="Loner white guys are awesome!")
+	then
+		String questiontext = "How much do you like New York?";
+		String answer1 = "I love NY!";
+		String answer2 = "Nothing against New York, but it's not necessary in my movies.";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Martin Scorsese"
+	when
+		q : Question(question == "How much do you like New York?" , answer=="I love NY!")
+	then
+	String questiontext = "Martin Scorsese";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "David Fincher"
+	when
+		q : Question(question == "How much do you like New York?" , answer=="Nothing against New York, but it's not necessary in my movies.")
+	then
+	String questiontext = "David Fincher";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+
+rule "Oliver Stone"
+	when
+		q : Question(question == "Do you own a tin foll hat to keep the government from reading your mind when you go to Starbucks?" , answer=="That way, they don't know how many lattes I have each year!")
+	then
+	String questiontext = "Oliver Stone";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "I prefer a director who has worked with..."
+	when
+		q : Question(question == "Do you own a tin foll hat to keep the government from reading your mind when you go to Starbucks?", answer=="Nope.")
+	then
+		String questiontext = "I prefer a director who has worked with...";
+		String answer1 = "An orangutan.";
+		String answer2 = "Don Knotts.";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Clint Eastwood"
+	when
+		q : Question(question == "I prefer a director who has worked with..." , answer=="An orangutan.")
+	then
+	String questiontext = "Clint Eastwood";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Ron Howard"
+	when
+		q : Question(question == "I prefer a director who has worked with..." , answer=="Don Knotts.")
+	then
+	String questiontext = "Ron Howard";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+
