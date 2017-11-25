@@ -44,8 +44,16 @@ rule "Alfred Hitchcock"
 	when
 		q : Question(question == "Is a train going into a tunel ever just a train going into a tunel?" , answer=="No. It's always sexual and Freudian.")
 	then
-		System.out.println("hiczkok");
-		//TODO wyswietlic hiczkoka
+		String questiontext = "Alfred Hiczkok";;
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
 end
 
 rule "Do you like your movies a little on the creepy side?"
@@ -55,7 +63,7 @@ rule "Do you like your movies a little on the creepy side?"
 		String questiontext = "Do you like your movies a little on the creepy side?";
 		String answer1 = "No creepiness for me. it's not important";
 		String answer2 = "Yes, but only a little.";
-		String answer3 = "I love creepy movies";
+		String answer3 = "I love creepy movies.";
 		
 		q.setQuestion(questiontext);
 		update(q);
@@ -485,5 +493,128 @@ rule "Lars Von Trier"
 		frame.setButtonText(2,answer3);		
 		frame.pack();
 end
-//prawo
 
+
+// Hugo: prawo, kurwa prawo
+
+rule "Do you like creepy movies with a twist?"
+	when
+		q : Question(question == "Do you like your movies a little on the creepy side?" , answer=="I love creepy movies.")
+	then
+		String questiontext = "Do you like creepy movies with a twist?";
+		String answer1 = "I am shameless sucker for a twist.";
+		String answer2 = "Meh, a twist is completely unneccessary";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+
+rule "M. Night Shyamalan"
+when
+		q : Question(question == "Do you like creepy movies with a twist?" , answer=="I am shameless sucker for a twist.")
+	then
+		String questiontext = "M. Night Shyamalan";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Do you like animation?"
+	when
+		q : Question(question == "Do you like creepy movies with a twist?" , answer=="Meh, a twist is completely unneccessary")
+	then
+		String questiontext = "Do you like animation?";
+		String answer1 = "What, like for kids? No thanks.";
+		String answer2 = "Hell, yeah!";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Tim Burton"
+when
+		q : Question(question == "Do you like animation?" , answer=="Hell, yeah!")
+	then
+		String questiontext = "Tim Burton";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Do you want to see things that no human should really ever see?"
+	when
+		q : Question(question == "Do you like animation?" , answer=="What, like for kids? No thanks.")
+	then
+		String questiontext = "Do you want to see things that no human should really ever see?";
+		String answer1 = "Golly gee, I sure don't.";
+		String answer2 = "The more disgusting the better.";
+		String answer3 = "";
+		
+		q.setQuestion(questiontext);
+		update(q);
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Guillermo Del Toro"
+when
+		q : Question(question == "Do you want to see things that no human should really ever see?" , answer=="Golly gee, I sure don't.")
+	then
+		String questiontext = "Guillermo Del Toro";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
+
+rule "Takashi Miike"
+when
+		q : Question(question == "Do you want to see things that no human should really ever see?" , answer=="The more disgusting the better.")
+	then
+		String questiontext = "Takashi Miike";
+		String answer1 = "";
+		String answer2 = "";
+		String answer3 = "";
+		
+		frame.setDisplayText(questiontext);
+		frame.setButtonText(0,answer1);
+		frame.setButtonText(1,answer2);
+		frame.setButtonText(2,answer3);		
+		frame.pack();
+end
